@@ -12,9 +12,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Column(
-        children: [
+      body: SafeArea(
+        child: Column(children: [
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
@@ -40,9 +39,18 @@ class _HomePageState extends State<HomePage> {
           //SECTION SEPERATOR PADDING
           const SizedBox(height: 25),
 
-          const WalletCard()
-        ],
+          //SECTION CARDS
+          Container(
+            height: 200,
+            child: ListView(scrollDirection: Axis.horizontal, children: const [
+              WalletCard(),
+              WalletCard(),
+              WalletCard(),
+            ]),
+          )
+          //-----------------
+        ]),
       ),
-    ));
+    );
   }
 }
