@@ -9,6 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //page controller
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           //SECTION CARDS
           Container(
             height: 200,
-            child: ListView(scrollDirection: Axis.horizontal, children: [
+            child: PageView(scrollDirection: Axis.horizontal, children: [
               WalletCard(
                   balance: 5250.20,
                   cardNumber: 12345678,
@@ -62,8 +64,46 @@ class _HomePageState extends State<HomePage> {
                   expiryYear: 28,
                   bgColor: Colors.green[500]),
             ]),
+          ),
+
+          //SECTION SEPERATOR PADDING
+          const SizedBox(height: 25),
+
+          //SECTION BUTTONS
+          Row(
+            children: [
+              //send button
+              Column(
+                children: [
+                  Container(
+                    height: 100,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade500,
+                            blurRadius: 40,
+                            spreadRadius: 2,
+                          )
+                        ]),
+                    child: Center(
+                      child: Image.asset('lib/icons/send-money.png'),
+                    ),
+                  ),
+                  Text(
+                    'Send',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                ],
+              ),
+            ],
           )
-          //-----------------
         ]),
       ),
     );
