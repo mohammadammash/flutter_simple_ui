@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_simple_demo/pages/add_card.dart';
+import 'package:wallet_simple_demo/pages/settings.dart';
 import 'package:wallet_simple_demo/utils/Wallet_Card.dart';
 import 'package:wallet_simple_demo/utils/action_button.dart';
 import 'package:wallet_simple_demo/utils/list_tile.dart';
@@ -30,12 +32,23 @@ class _HomePageState extends State<HomePage> {
                     'My Cards',
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   ),
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      shape: BoxShape.circle,
+                  //onPlusIcon Click Stack Navigate to SettingsPage
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AddCardPage(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.add),
                     ),
-                    child: const Icon(Icons.add),
                   )
                 ],
               ),
