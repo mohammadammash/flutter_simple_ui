@@ -34,8 +34,19 @@ class WalletCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Balance',
-              style: TextStyle(color: cardTextColor, fontSize: 18)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Balance',
+                style: TextStyle(color: cardTextColor, fontSize: 18),
+              ),
+              Image.asset(
+                'lib/icons/credit-card.png',
+                height: 50,
+              )
+            ],
+          ),
           const SizedBox(height: 12),
           Text('\$ ${balance.toString()}',
               style: const TextStyle(
