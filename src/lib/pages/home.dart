@@ -16,79 +16,140 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
-            //START OF APPBAR CUSTOMIZED
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'My Cards',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                ),
-                Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.grey,
-                    shape: BoxShape.circle,
+        child: Column(
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+              //START OF APPBAR CUSTOMIZED
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'My Cards',
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   ),
-                  child: const Icon(Icons.add),
-                )
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.grey,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.add),
+                  )
+                ],
+              ),
+            ),
+
+            //SECTION SEPERATOR PADDING
+            const SizedBox(height: 25),
+
+            //SECTION CARDS
+            Container(
+              height: 200,
+              child: PageView(scrollDirection: Axis.horizontal, children: [
+                WalletCard(
+                    balance: 5250.20,
+                    cardNumber: 12345678,
+                    expiryMonth: 10,
+                    expiryYear: 24,
+                    bgColor: Colors.deepPurple[400]),
+                WalletCard(
+                    balance: 342.23,
+                    cardNumber: 21345678,
+                    expiryMonth: 11,
+                    expiryYear: 23,
+                    bgColor: Colors.blue[400]),
+                WalletCard(
+                    balance: 10233.91,
+                    cardNumber: 31245678,
+                    expiryMonth: 1,
+                    expiryYear: 28,
+                    bgColor: Colors.green[500]),
+              ]),
+            ),
+
+            //SECTION SEPERATOR PADDING
+            const SizedBox(height: 35),
+
+            //SECTION BUTTONS
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                ActionButton(
+                  iconImagePath: 'lib/icons/send-money.png',
+                  bottomText: 'Send',
+                ),
+                ActionButton(
+                  iconImagePath: 'lib/icons/credit-card.png',
+                  bottomText: 'Pay',
+                ),
+                ActionButton(
+                  iconImagePath: 'lib/icons/bill.png',
+                  bottomText: 'Bills',
+                ),
               ],
             ),
-          ),
 
-          //SECTION SEPERATOR PADDING
-          const SizedBox(height: 25),
+            //SECTION SEPERATOR PADDING
+            const SizedBox(height: 35),
 
-          //SECTION CARDS
-          Container(
-            height: 200,
-            child: PageView(scrollDirection: Axis.horizontal, children: [
-              WalletCard(
-                  balance: 5250.20,
-                  cardNumber: 12345678,
-                  expiryMonth: 10,
-                  expiryYear: 24,
-                  bgColor: Colors.deepPurple[400]),
-              WalletCard(
-                  balance: 342.23,
-                  cardNumber: 21345678,
-                  expiryMonth: 11,
-                  expiryYear: 23,
-                  bgColor: Colors.blue[400]),
-              WalletCard(
-                  balance: 10233.91,
-                  cardNumber: 31245678,
-                  expiryMonth: 1,
-                  expiryYear: 28,
-                  bgColor: Colors.green[500]),
-            ]),
-          ),
-
-          //SECTION SEPERATOR PADDING
-          const SizedBox(height: 35),
-
-          //SECTION BUTTONS
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              ActionButton(
-                iconImagePath: 'lib/icons/send-money.png',
-                bottomText: 'Send',
+            //SECTION STATISTICS
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 80,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[100],
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Image.asset('lib/icons/statistics.png'),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text('Statistics',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  )),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text('Payments and Icons',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey[600],
+                                  )),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Icon(Icons.arrow_forward_ios)
+                    ],
+                  ),
+                  // Row(
+                  //   children: [
+                  //     Container(
+                  //       height: 80,
+                  //       child: Image.asset('lib/icon'),
+                  //     ),
+                  //   ],
+                  // ),
+                ],
               ),
-              ActionButton(
-                iconImagePath: 'lib/icons/credit-card.png',
-                bottomText: 'Pay',
-              ),
-              ActionButton(
-                iconImagePath: 'lib/icons/bill.png',
-                bottomText: 'Bills',
-              ),
-            ],
-          )
-        ]),
+            )
+          ],
+        ),
       ),
     );
   }
