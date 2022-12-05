@@ -38,6 +38,23 @@ class _HomePageState extends State<HomePage> {
 
           //SECTION SEPERATOR PADDING
           const SizedBox(height: 25),
+
+          //START OF CARDS:
+          Container(
+            decoration: BoxDecoration(color: Colors.deepPurple[300]),
+            child: Column(
+              children: [
+                const Text('Balance'),
+                const Text('\$5,250.20'),
+                Row(
+                  children: const [
+                    Text("**** 3456"),
+                    Text('10/24'),
+                  ],
+                )
+              ],
+            ),
+          )
         ],
       ),
     ));
