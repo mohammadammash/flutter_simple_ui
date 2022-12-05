@@ -42,10 +42,25 @@ class _HomePageState extends State<HomePage> {
           //SECTION CARDS
           Container(
             height: 200,
-            child: ListView(scrollDirection: Axis.horizontal, children: const [
-              WalletCard(),
-              WalletCard(),
-              WalletCard(),
+            child: ListView(scrollDirection: Axis.horizontal, children: [
+              WalletCard(
+                  balance: 5250.20,
+                  cardNumber: 12345678,
+                  expiryMonth: 10,
+                  expiryYear: 24,
+                  bgColor: Colors.deepPurple[200]),
+              WalletCard(
+                  balance: 342.23,
+                  cardNumber: 21345678,
+                  expiryMonth: 11,
+                  expiryYear: 23,
+                  bgColor: Colors.blue[400]),
+              WalletCard(
+                  balance: 10233.91,
+                  cardNumber: 31245678,
+                  expiryMonth: 1,
+                  expiryYear: 28,
+                  bgColor: Colors.green[500]),
             ]),
           )
           //-----------------
