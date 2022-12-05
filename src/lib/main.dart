@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_simple_demo/pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Text('Hello'),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
