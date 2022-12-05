@@ -10,6 +10,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    //local styling
+    const cardtext_color = Colors.white;
+
     return Scaffold(
         body: SafeArea(
       child: Column(
@@ -41,15 +44,27 @@ class _HomePageState extends State<HomePage> {
 
           //START OF CARDS:
           Container(
-            decoration: BoxDecoration(color: Colors.deepPurple[300]),
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.deepPurple[300],
+              borderRadius: BorderRadius.circular(16),
+            ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Balance'),
-                const Text('\$5,250.20'),
+                const Text('Balance',
+                    style: TextStyle(color: cardtext_color, fontSize: 18)),
+                const SizedBox(height: 12),
+                const Text('\$5,250.20',
+                    style: TextStyle(
+                        color: cardtext_color, fontSize: 35, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 20),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text("**** 3456"),
-                    Text('10/24'),
+                    Text("**** 3456", style: TextStyle(color: cardtext_color)),
+                    Text('10/24', style: TextStyle(color: cardtext_color)),
                   ],
                 )
               ],
