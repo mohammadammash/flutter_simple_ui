@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_simple_demo/utils/Wallet_Card.dart';
+import 'package:wallet_simple_demo/utils/action_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                   cardNumber: 12345678,
                   expiryMonth: 10,
                   expiryYear: 24,
-                  bgColor: Colors.deepPurple[200]),
+                  bgColor: Colors.deepPurple[400]),
               WalletCard(
                   balance: 342.23,
                   cardNumber: 21345678,
@@ -67,40 +68,23 @@ class _HomePageState extends State<HomePage> {
           ),
 
           //SECTION SEPERATOR PADDING
-          const SizedBox(height: 25),
+          const SizedBox(height: 35),
 
           //SECTION BUTTONS
           Row(
-            children: [
-              //send button
-              Column(
-                children: [
-                  Container(
-                    height: 100,
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.shade500,
-                            blurRadius: 40,
-                            spreadRadius: 2,
-                          )
-                        ]),
-                    child: Center(
-                      child: Image.asset('lib/icons/send-money.png'),
-                    ),
-                  ),
-                  Text(
-                    'Send',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                ],
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              ActionButton(
+                iconImagePath: 'lib/icons/send-money.png',
+                bottomText: 'Send',
+              ),
+              ActionButton(
+                iconImagePath: 'lib/icons/credit-card.png',
+                bottomText: 'Pay',
+              ),
+              ActionButton(
+                iconImagePath: 'lib/icons/bill.png',
+                bottomText: 'Bills',
               ),
             ],
           )
