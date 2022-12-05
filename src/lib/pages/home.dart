@@ -99,7 +99,16 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(25.0),
               child: Column(
                 children: const [
-                  ListTileUtil(),
+                  ListTileUtil(
+                    tileTitle: 'Statistics',
+                    tileSubtitle: 'Payment and Income',
+                    iconImagePath: 'lib/icons/statistics.png',
+                  ),
+                  ListTileUtil(
+                    tileTitle: 'Transactions',
+                    tileSubtitle: 'Transaction History',
+                    iconImagePath: 'lib/icons/transaction.png',
+                  ),
                 ],
               ),
             )
