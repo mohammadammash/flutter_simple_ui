@@ -9,8 +9,9 @@ class WalletCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 30),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       padding: const EdgeInsets.all(20),
+      width: 400,
       decoration: BoxDecoration(
         color: Colors.deepPurple[300],
         borderRadius: BorderRadius.circular(16),
