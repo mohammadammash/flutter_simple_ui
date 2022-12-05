@@ -4,7 +4,22 @@ import 'package:flutter/material.dart';
 const cardTextColor = Colors.white;
 
 class WalletCard extends StatelessWidget {
-  const WalletCard({super.key});
+  //params
+  final double balance;
+  final int cardNumber;
+  final int expiryMonth;
+  final int expiryYear;
+  final Color? bgColor;
+
+  //constructor
+  const WalletCard({
+    super.key,
+    required this.balance,
+    required this.cardNumber,
+    required this.expiryMonth,
+    required this.expiryYear,
+    required this.bgColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +28,7 @@ class WalletCard extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       width: 400,
       decoration: BoxDecoration(
-        color: Colors.deepPurple[300],
+        color: bgColor,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -22,17 +37,19 @@ class WalletCard extends StatelessWidget {
           const Text('Balance',
               style: TextStyle(color: cardTextColor, fontSize: 18)),
           const SizedBox(height: 12),
-          const Text('\$5,250.20',
-              style: TextStyle(
+          Text('\$ ${balance.toString()}',
+              style: const TextStyle(
                   color: cardTextColor,
                   fontSize: 35,
                   fontWeight: FontWeight.bold)),
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("**** 3456", style: TextStyle(color: cardTextColor)),
-              Text('10/24', style: TextStyle(color: cardTextColor)),
+            children: [
+              Text(cardNumber.toString(),
+                  style: const TextStyle(color: cardTextColor)),
+              Text('${expiryMonth.toString()}/${expiryYear.toString()}',
+                  style: const TextStyle(color: cardTextColor)),
             ],
           )
         ],
