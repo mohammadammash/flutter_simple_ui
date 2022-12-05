@@ -30,7 +30,76 @@ class _AddCardPageState extends State<AddCardPage> {
               icon: const Icon(Icons.info_outline))
         ],
       ),
-      body: Column(),
+      body: Column(
+        children: [
+          Image.asset('lib/icons/flutter_logo.jpg'),
+          //SizeBox: like margin-top
+          const SizedBox(
+            height: 10,
+          ),
+
+          const Divider(
+            color: Colors.black,
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(5.0),
+            width: double.infinity,
+            color: Colors.blueGrey,
+            child: const Center(
+              child: Text(
+                'This is a text widget',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+
+          OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              backgroundColor: isSwitch ? Colors.blue : Colors.green,
+              foregroundColor: Colors.white,
+            ),
+            onPressed: () {
+              debugPrint('Outlined Button');
+            },
+            child: const Text('Outlined Button'),
+          ),
+
+          TextButton(
+            onPressed: () {
+              debugPrint('Text Button');
+            },
+            child: const Text('Text Button'),
+          ),
+
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: (() {
+              debugPrint('Row Clicked');
+            }),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                Icon(Icons.local_fire_department, color: Colors.blue),
+                Text('Row Widget'),
+                Icon(Icons.local_fire_department, color: Colors.blue),
+              ],
+            ),
+          ),
+
+          Switch(
+            value: isSwitch,
+            onChanged: (bool newBool) {
+              setState(() {
+                isSwitch = newBool;
+              });
+            },
+          )
+        ],
+      ),
     );
   }
 }
