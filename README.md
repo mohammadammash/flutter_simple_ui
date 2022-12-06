@@ -1,5 +1,5 @@
 # Wallet Simple Demo 
-This is a simple Flutter frontend mobile application and my first experience to learn and code with Flutter Framework by implementing simple wallet UI
+This is a simple Flutter frontend mobile application and my first experience to learn and code with Flutter Framework by implementing flutter simple UI
 
 ## Languages
 Dart - Flutter(framework)
